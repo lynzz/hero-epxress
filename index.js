@@ -29,6 +29,16 @@ app.post('/locations', function(request, response){
   response.sendStatus(200);
 });
 
+app.post('/log', function(request, response){
+  console.log(`[INFO] ${request.body.message}`)
+  response.sendStatus(200);
+});
+
+app.post('/error', function(request, response){
+  console.log(`[ERROR] ${request.body.message}`)
+  response.sendStatus(200);
+});
+
 app.post('/sync', function(request, response){
   console.log('Headers:\n', request.headers);
   console.log('Synced Locations:\n', request.body);
